@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 40px;
+            color: white;
+            transition-duration: 400ms;
+            transition-timing-function: ease-out;
+        }
+        body {
+            height:100vh;
+            background-color: rgb(3, 34, 31);
+        }
+
+        .main {
+            height: 40vh;
+            width: 60vh;
+            /*background:linear-gradient(to bottom, rgba(48, 86, 255, 1),
+             rgba(0, 217, 255, 1));*/
+            /box-shadow: -2vh -2vh 4vh rgba(0, 0, 0, 0.66);/
+            transform-origin: center;
+            -ms-transform-origin: center;
+            -webkit-transform-origin: center;
+            position: absolute;
+            transform: translate(-50%, -50%); 
+            border-radius: 5vh;
+            top: 50%;
+            left: 50%;
+            /*transform: translate(50vw,
+             50vh);*/
+             background-color:transparent;
+        }
+        .container {
+            position: absolute;
+            height: 30%;
+            width: 50%;
+            top: 33%;
+            left: 22%;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius:8vh;
+            border: 1.8vh solid /white/ rgba(100,100,100,1);
+            box-shadow: -1vh -1vh 4vh rgba(0, 0, 0, 0.3),
+             inset -1vh -1vh 2vh rgba(0, 0, 0, 0.3) ;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .switch {
+            background-color: transparent;
+            height: 72%;
+            width: 30.5%;
+            position: absolute;
+            top: 4.4%;
+            left:3%;
+            border-radius: 50%;
+            /border: 0.5vh solid black;/
+            box-shadow: -6px -6px 20px rgba(190, 190, 190, 0.1), 
+            inset -1vh -1vh 4vh rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            border: 1vh solid /white/ rgba(100,100,100,1);
+        }
+        
+        .indicator {
+            height: 30%;
+            width: 30%;
+            position: absolute;
+            top: 35%;
+            left: 35%;
+            background-color: rgba(112, 112, 112, 0.623);
+            border-radius: 50%;
+            box-shadow: -3px -2px 6vh rgba(0, 0, 0, 0.1);
+        }
+
+
+    </style>
+    <title>switch</title>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="container" id='button1' onclick="activate()">
+            <div class="switch" id='button3'>
+                <div class="indicator" id='button2'></div>
+            </div>
+        </div>
+    </div>
+<script>
+var val = true;
+ function activate() {
+    var container = document.getElementById('button1');
+    //var trans = document.getElementById('button3');
+    var key = document.getElementById('button2');
+    //document.write(val);
+    if (val) {
+        var container = document.getElementById('button1');
+        var trans = document.getElementById('button3');
+        var key = document.getElementById('button2');
+        // switch on 
+        container.style.borderColor = 'lime';
+        trans.style.left = "58%";
+        key.style.backgroundColor = "lime";
+        key.style.boxShadow = "0 0 4vh lime";
+        container.style.boxShadow = "0 0 4vh lime, inset 0 0 4vh lime";
+        trans.style.borderColor = "lime";
+        trans.style.boxShadow = "0 0 8vh lime, inset 0 0 4vh lime";
+        //trans.style.backgroundColor = "green";
+        val = false;
+    
+    }
+    else {
+        var container = document.getElementById('button1');
+        var trans = document.getElementById('button3');
+        var key = document.getElementById('button2');
+        // switch off
+        container.style.borderColor = 'rgba(100,100,100,1)';
+        trans.style.left = "3%";
+        key.style.boxShadow = " -3px -2px 6vh rgba(0, 0, 0, 0.1)";
+        //trans.style.backgroundColor = "white";
+        key.style.backgroundColor = "gray";
+        key.style.borderColor = "rgba(100,100,100,1)";
+        container.style.boxShadow = "-1vh -1vh 4vh rgba(0, 0, 0, 0.3), inset -1vh -1vh 2vh rgba(0, 0, 0, 0.3)";
+        trans.style.borderColor = "rgba(100,100,100,1)"
+        trans.style.boxShadow = "-6px -6px 20px rgba(190, 190, 190, 0.2), inset -1vh -1vh 4vh rgba(0, 0, 0, 0.2)";
+        val = true;
+
+    }
+ }
+
+</script>
+</body>
+</html>
